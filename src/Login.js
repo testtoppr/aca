@@ -37,8 +37,8 @@ export default function Login({navigation}) {
                 <Text style={styles.label}>Email Address</Text>
                 <TextInput
                     style={styles.inputField}
-                    keyboardType="email-address"
-                    placeholder="Enter your registered email"
+                    keyboardType="default"
+                    placeholder="Enter your registered username"
                     value={email}
                     onChangeText={(val) => setEmail(val)}
                 />
@@ -69,6 +69,7 @@ export default function Login({navigation}) {
                 btnText="Sign up"
                 onPress={handleSignUpBtnClick}
             />
+            <ORDivider/>
         </ScrollView>
     );
 }
