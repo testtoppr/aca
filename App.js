@@ -1,12 +1,43 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Login from './src/Login';
+import React,{useState} from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import SnackBar from './src/SnackBar'
 
 export default function App() {
+  const [snackBarVisible, setSnackBarVisible] = useState(false);
+  const [snackBarText, setSnackBarText] = useState("");
+  const [snackBarType, setSnackBarType] = useState("");
+
+  function displaySnackBar(type, text) {
+    setSnackBarType(type);
+    setSnackBarText(text);
+    setSnackBarVisible(true);
+}
+
+  //function to hide snackbar
+  function hideSnackBar() {
+      setSnackBarVisible(false);
+  }
+
+  function handeClick(){
+    displaySnackBar("success","Hello testing");
+  }
   return (
     <View style={styles.container}>
-      <Login/>
+      <Button onPress={handeClick} title="Click Me"
+              color="#841584"
+              accessibilityLabel="Learn more about this purple button"
+      />
+      {
+                snackBarVisible ?
+                    <SnackBar
+                        isVisible={snackBarVisible}
+                        text={snackBarText}
+                        type={snackBarType}
+                        onClose={hideSnackBar}
+                    />
+                    : null
+            }
     </View>
   );
 }
