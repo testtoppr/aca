@@ -20,11 +20,59 @@ export default function App() {
       setSnackBarVisible(false);
   }
 
-  async function handeClick(){
+  async function handeClick1(){
     displaySnackBar("success","This is an example of a snackbar");
     const soundObject = new Audio.Sound();
     try {
-      await soundObject.loadAsync(require('./assets/ding.mp3'));
+      await soundObject.loadAsync(require('./assets/ding1.mp3'));
+      await soundObject.playAsync();
+      // Your sound is playing!
+
+      // Don't forget to unload the sound from memory
+      // when you are done using the Sound object
+      await soundObject.unloadAsync();
+    } catch (error) {
+      // An error occurred!
+    }
+  }
+
+  async function handeClick2(){
+    displaySnackBar("success","This is an example of a snackbar");
+    const soundObject = new Audio.Sound();
+    try {
+      await soundObject.loadAsync(require('./assets/ding1.mp3'));
+      await soundObject.playAsync();
+      // Your sound is playing!
+
+      // Don't forget to unload the sound from memory
+      // when you are done using the Sound object
+      await soundObject.unloadAsync();
+    } catch (error) {
+      // An error occurred!
+    }
+  }
+
+  async function handeClick3(){
+    displaySnackBar("success","This is an example of a snackbar");
+    const soundObject = new Audio.Sound();
+    try {
+      await soundObject.loadAsync(require('./assets/ding1.mp3'));
+      await soundObject.playAsync();
+      // Your sound is playing!
+
+      // Don't forget to unload the sound from memory
+      // when you are done using the Sound object
+      await soundObject.unloadAsync();
+    } catch (error) {
+      // An error occurred!
+    }
+  }
+
+  async function handeClick4(){
+    displaySnackBar("success","This is an example of a snackbar");
+    const soundObject = new Audio.Sound();
+    try {
+      await soundObject.loadAsync(require('./assets/ding1.mp3'));
       await soundObject.playAsync();
       // Your sound is playing!
 
@@ -37,9 +85,25 @@ export default function App() {
   }
   return (
     <View style={styles.container}>
-      <Button onPress={handeClick} title="Click Me"
+      <Button onPress={handeClick1} title="Button 1"
               color="#841584"
               accessibilityLabel="Learn more about this purple button"
+              style={styles.button}
+      />
+      <Button onPress={handeClick2} title="Button 2"
+              color="#841584"
+              accessibilityLabel="Learn more about this purple button"
+              style={styles.button}
+      />
+      <Button onPress={handeClick3} title="Button 3"
+              color="#841584"
+              accessibilityLabel="Learn more about this purple button"
+              style={styles.button}
+      />
+      <Button onPress={handeClick4} title="Button 4"
+              color="#841584"
+              accessibilityLabel="Learn more about this purple button"
+              style={styles.button}
       />
       {
                 snackBarVisible ?
@@ -60,6 +124,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
+    flexDirection:"row"
   },
+  button:{
+    padding:10,
+    borderRadius: 100
+  }
 });
